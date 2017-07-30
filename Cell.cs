@@ -8,8 +8,6 @@ namespace CellSimulator
 {
     public class Cell
     {
-        Random rand = new Random();
-
         public int id;
         public int age = 0;
 
@@ -18,13 +16,15 @@ namespace CellSimulator
 
         public int energy = 100;
         public int maxEnergy = 100;
+
+        public string lastAction = "Born";
         
         public Cell(int cellId)
         {
             id = cellId;
         }
 
-        public void Eat()
+        public bool Eat(Random rand)
         {
             bool didEat = false;
             if(rand.Next(0, 101) > 75)
@@ -33,14 +33,15 @@ namespace CellSimulator
             }
             if (didEat)
             {
-                food += 10;
+                food += 40;
             }
             if(food > maxFood)
             {
                 food = maxFood;
             }
+            return didEat;
         }
-        public bool Split()
+        public bool Split(Random rand)
         {
             bool didSplit = false;
             if(rand.Next(0, 101) > 75)
