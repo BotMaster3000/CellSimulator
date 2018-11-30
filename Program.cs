@@ -10,26 +10,30 @@ namespace CellSimulator
     {
         static void Main(string[] args)
         {
+            bool showCellInfo = true;
             CellOverseer overseer = new CellOverseer(1);
             while (true)
             {
-                foreach(Cell cell in overseer.cells)
+                if (showCellInfo)
                 {
-                    Console.WriteLine("ID:" + cell.id + "|AGE:" + cell.age + "|FOOD:" + cell.food + "|ENERGY:" + cell.energy + "|ACTION:" + cell.lastAction);
+                    foreach (Cell cell in overseer.cells)
+                    {
+                        Console.WriteLine("ID:" + cell.id + "|AGE:" + cell.age + "|FOOD:" + cell.food + "|ENERGY:" + cell.energy + "|ACTION:" + cell.lastAction);
+                    }
                 }
                 Console.WriteLine("ALIVE:" + overseer.cells.Count());
-                string keyPressed = Console.ReadLine();
-                if(keyPressed != "")
+                string commandEntered = Console.ReadLine().ToLower();
+                if (commandEntered != "")
                 {
-                    if(keyPressed == "save")
+                    if (commandEntered == "save")
                     {
                         overseer.SaveToFile();
                         continue;
                     }
-                    else if(keyPressed == "load")
+                    else if (commandEntered == "load")
                     {
                         string fileName = Console.ReadLine();
-                        if(fileName == "")
+                        if (fileName == "")
                         {
                             continue;
                         }
@@ -37,6 +41,10 @@ namespace CellSimulator
                         {
                             overseer.LoadFromFile(fileName);
                         }
+                    }
+                    else if (commandEntered == "switchshowinfo")
+                    {
+                        showCellInfo = !showCellInfo;
                     }
                 }
 
