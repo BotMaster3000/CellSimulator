@@ -15,7 +15,7 @@ namespace CellSimulator
 
         public CellOverseer(int startingCells)
         {
-            for(int i = 0; i < startingCells; ++i)
+            for (int i = 0; i < startingCells; ++i)
             {
                 AddNewCell(cells);
             }
@@ -28,13 +28,13 @@ namespace CellSimulator
         public void SimulateNext()
         {
             List<Cell> stillAliveCells = new List<Cell>();
-            foreach(Cell cell in cells)
+            foreach (Cell cell in cells)
             {
-                if(cell.energy <= 0 || cell.food <= 0)
+                if (cell.energy <= 0 || cell.food <= 0)
                 {
                     continue;
                 }
-                if(cell.food >= 60)
+                if (cell.food >= 60)
                 {
                     if (cell.Split(rand))
                     {
@@ -58,8 +58,8 @@ namespace CellSimulator
                     else
                     {
                         cell.lastAction = "FailEat";
-                    }                    
-                }                
+                    }
+                }
                 cell.energy -= 5;
                 cell.food -= 5;
                 if (cell.energy <= 0 || cell.food <= 0)
@@ -74,7 +74,7 @@ namespace CellSimulator
         public void SaveToFile()
         {
             List<string> linesToAppend = new List<string>();
-            foreach(Cell cell in cells)
+            foreach (Cell cell in cells)
             {
                 string lineToAppend = cell.id + "|" + cell.age + "|" + cell.food + "|" + cell.maxFood + "|" + cell.energy + "|" + cell.maxEnergy + "|" + cell.lastAction;
                 linesToAppend.Add(lineToAppend);
@@ -83,15 +83,15 @@ namespace CellSimulator
             File.AppendAllLines("CellList-" + nameAppender + ".txt", linesToAppend);
         }
         public bool LoadFromFile(string fileName)
-        {            
-            if(!File.Exists(fileName))
+        {
+            if (!File.Exists(fileName))
             {
                 return false;
             }
 
             List<Cell> listOfCells = new List<Cell>();
             string[] dataLines = File.ReadAllLines(fileName);
-            foreach(string dataLine in dataLines)
+            foreach (string dataLine in dataLines)
             {
                 string[] splitDataLine = dataLine.Split('|');
                 Cell tempCell = new Cell(cellIdCounter)

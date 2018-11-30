@@ -18,7 +18,7 @@ namespace CellSimulator
         public int maxEnergy = 100;
 
         public string lastAction = "Born";
-        
+
         public Cell(int cellId)
         {
             id = cellId;
@@ -27,7 +27,7 @@ namespace CellSimulator
         public bool Eat(Random rand)
         {
             bool didEat = false;
-            if(rand.Next(0, 101) > 75)
+            if (rand.Next(0, 101) > 75)
             {
                 didEat = true;
             }
@@ -35,7 +35,7 @@ namespace CellSimulator
             {
                 food += 40;
             }
-            if(food > maxFood)
+            if (food > maxFood)
             {
                 food = maxFood;
             }
@@ -44,10 +44,10 @@ namespace CellSimulator
         public bool Split(Random rand)
         {
             bool didSplit = false;
-            if(rand.Next(0, 101) > 75)
+            if (rand.Next(0, 101) > 75)
             {
                 didSplit = true;
-            }            
+            }
             return didSplit;
         }
     }
