@@ -32,7 +32,7 @@ namespace CellSimulator
                             continue;
                         case "load":
                             string fileName = Console.ReadLine();
-                            if (fileName == "")
+                            if (string.IsNullOrEmpty(fileName))
                             {
                                 continue;
                             }
