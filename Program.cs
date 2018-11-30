@@ -23,28 +23,27 @@ namespace CellSimulator
                 }
                 Console.WriteLine("ALIVE:" + overseer.cells.Count());
                 string commandEntered = Console.ReadLine().ToLower();
-                if (commandEntered != "")
+                if (!string.IsNullOrEmpty(commandEntered))
                 {
-                    if (commandEntered == "save")
+                    switch (commandEntered)
                     {
-                        overseer.SaveToFile();
-                        continue;
-                    }
-                    else if (commandEntered == "load")
-                    {
-                        string fileName = Console.ReadLine();
-                        if (fileName == "")
-                        {
+                        case "save":
+                            overseer.SaveToFile();
                             continue;
-                        }
-                        else
-                        {
-                            overseer.LoadFromFile(fileName);
-                        }
-                    }
-                    else if (commandEntered == "switchshowinfo")
-                    {
-                        showCellInfo = !showCellInfo;
+                        case "load":
+                            string fileName = Console.ReadLine();
+                            if (fileName == "")
+                            {
+                                continue;
+                            }
+                            else
+                            {
+                                overseer.LoadFromFile(fileName);
+                            }
+                            break;
+                        case "switchshowinfo":
+                            showCellInfo = !showCellInfo;
+                            break;
                     }
                 }
 
