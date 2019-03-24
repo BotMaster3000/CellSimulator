@@ -44,6 +44,11 @@
   <ItemGroup>
     <Compile Include="Cell.cs" />
     <Compile Include="CellOverseer.cs" />
+    <Compile Include="Enums\ActionEnum.cs" />
+    <Compile Include="Interfaces\ICell.cs" />
+    <Compile Include="Interfaces\ICellOverseer.cs" />
+    <Compile Include="Models\Cell.cs" />
+    <Compile Include="Models\CellOverseer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
