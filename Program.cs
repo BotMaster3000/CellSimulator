@@ -10,33 +10,40 @@ namespace CellSimulator
     {
         static void Main(string[] args)
         {
+            bool showCellInfo = true;
             CellOverseer overseer = new CellOverseer(1);
             while (true)
             {
-                foreach(Cell cell in overseer.cells)
+                if (showCellInfo)
                 {
-                    Console.WriteLine("ID:" + cell.id + "|AGE:" + cell.age + "|FOOD:" + cell.food + "|ENERGY:" + cell.energy + "|ACTION:" + cell.lastAction);
+                    foreach (Cell cell in overseer.cells)
+                    {
+                        Console.WriteLine("ID:" + cell.id + "|AGE:" + cell.age + "|FOOD:" + cell.food + "|ENERGY:" + cell.energy + "|ACTION:" + cell.lastAction);
+                    }
                 }
                 Console.WriteLine("ALIVE:" + overseer.cells.Count());
-                string keyPressed = Console.ReadLine();
-                if(keyPressed != "")
+                string commandEntered = Console.ReadLine().ToLower();
+                if (!string.IsNullOrEmpty(commandEntered))
                 {
-                    if(keyPressed == "save")
+                    switch (commandEntered)
                     {
-                        overseer.SaveToFile();
-                        continue;
-                    }
-                    else if(keyPressed == "load")
-                    {
-                        string fileName = Console.ReadLine();
-                        if(fileName == "")
-                        {
+                        case "save":
+                            overseer.SaveToFile();
                             continue;
-                        }
-                        else
-                        {
-                            overseer.LoadFromFile(fileName);
-                        }
+                        case "load":
+                            string fileName = Console.ReadLine();
+                            if (string.IsNullOrEmpty(fileName))
+                            {
+                                continue;
+                            }
+                            else
+                            {
+                                overseer.LoadFromFile(fileName);
+                            }
+                            break;
+                        case "switchshowinfo":
+                            showCellInfo = !showCellInfo;
+                            break;
                     }
                 }
 
