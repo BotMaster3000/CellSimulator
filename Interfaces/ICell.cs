@@ -11,8 +11,10 @@ namespace CellSimulator.Interfaces
         int Energy { get; set; }
         int MaxEnergy { get; set; }
         ActionEnum LastAction { get; set; }
+        bool IsAlive { get; set; }
 
         bool TrySplit();
         bool TryEat();
+        void PerformAction();
     }
 }
