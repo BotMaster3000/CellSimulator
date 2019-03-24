@@ -10,22 +10,48 @@ namespace CellSimulator.Models
 {
     public class Cell : ICell
     {
-        public int ID { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public int Age { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public int Food { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public int MaxFood { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public int Energy { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public int MaxEnergy { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public ActionEnum LastAction { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public int ID { get; set; }
+        public int Age { get; set; }
+        public int Food { get; set; }
+        public int MaxFood { get; set; }
+        public int Energy { get; set; }
+        public int MaxEnergy { get; set; }
+        public ActionEnum LastAction { get; set; }
 
-        public bool Split()
+        private const double PROPABILITY_EAT_FOOD = 0.25;
+        private const int INCREMENTOR_EAT_FOOD = 40;
+
+        private const double PROPABILITY_SPLIT = 0.25;
+
+        private Random rand;
+
+        public Cell(int id = 0, Random rand = null)
         {
-            throw new NotImplementedException();
+            ID = id;
+            this.rand = rand ?? new Random();
+        }
+
+        public bool TryEat()
+        {
+            bool didEat = rand.NextDouble() <= PROPABILITY_EAT_FOOD;
+            if(didEat)
+            {
+                IncrementFood();
+            }
+            return didEat;
+        }
+
+        private void IncrementFood()
+        {
+            if((Food += INCREMENTOR_EAT_FOOD) > MaxFood)
+            {
+                Food = MaxFood;
+            }
         }
 
         public bool TrySplit()
         {
-            throw new NotImplementedException();
+            return rand.NextDouble() <= PROPABILITY_SPLIT;
         }
     }
 }

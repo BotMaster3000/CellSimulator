@@ -13,6 +13,6 @@ namespace CellSimulator.Interfaces
         ActionEnum LastAction { get; set; }
 
         bool TrySplit();
-        bool Split();
+        bool TryEat();
     }
 }
