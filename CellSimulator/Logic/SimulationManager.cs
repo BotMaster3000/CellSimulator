@@ -6,20 +6,23 @@ using System.Threading.Tasks;
 using CellSimulator.Interfaces;
 using CellSimulator.Input;
 using CellSimulator.Enums;
+using CellSimulator.Output;
 
 namespace CellSimulator.Logic
 {
     public class SimulationManager : ISimulationManager
     {
-        private readonly CellOverseer Overseer = new CellOverseer();
-        private readonly SaveLoadManager SaveLoadmanager = new SaveLoadManager();
-        private readonly ConsoleInputManager InputManager = new ConsoleInputManager();
+        private readonly ICellOverseer Overseer = new CellOverseer();
+        private readonly ISaveLoadManager SaveLoadmanager = new SaveLoadManager();
+        private readonly IUserActionManager InputManager = new ConsoleInputManager();
+        private readonly ICellPrinter OutputManager = new ConsoleCellPrinter();
 
         public void StartSimulation()
         {
             SetInitialPopulation();
             while (true)
             {
+                OutputManager.PrintCells(Overseer.CellList);
                 switch (InputManager.GetUserAction())
                 {
                     case UserActionEnum.LOAD:
@@ -40,7 +43,7 @@ namespace CellSimulator.Logic
         private void SetInitialPopulation()
         {
             int cellCount = GetStartingCellCount();
-            for(int i = 0; i < cellCount; ++i)
+            for (int i = 0; i < cellCount; ++i)
             {
                 Overseer.AddCell();
             }

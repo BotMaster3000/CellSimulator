@@ -12,10 +12,10 @@ namespace CellSimulator.Models
     {
         public int ID { get; set; }
         public int Age { get; set; }
-        public int Food { get; set; }
-        public int MaxFood { get; set; }
-        public int Energy { get; set; }
-        public int MaxEnergy { get; set; }
+        public int Food { get; set; } = 100;
+        public int MaxFood { get; set; } = 100;
+        public int Energy { get; set; } = 100;
+        public int MaxEnergy { get; set; } = 100;
         public CellActionEnum LastAction { get; set; }
         public bool IsAlive { get; set; } = true;
 

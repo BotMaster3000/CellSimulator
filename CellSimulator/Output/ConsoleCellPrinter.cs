@@ -17,11 +17,11 @@ namespace CellSimulator.Output
             {
                 Console.WriteLine(string.Join(VALUE_SEPARATION_VALUE.ToString(),
                     new string[] {
-                    $"{nameof(cell.ID)}:{cell.ID}" +
-                    $"{nameof(cell.Age)}:{cell.Age}" +
-                    $"{nameof(cell.Food)}:{cell.Food}" +
-                    $"{nameof(cell.Energy)}:{cell.Energy}" +
-                    $"{nameof(cell.LastAction)}:{cell.LastAction}"
+                    $"{nameof(cell.ID)}:{cell.ID}",
+                    $"{nameof(cell.Age)}:{cell.Age}",
+                    $"{nameof(cell.Food)}:{cell.Food}",
+                    $"{nameof(cell.Energy)}:{cell.Energy}",
+                    $"{nameof(cell.LastAction)}:{cell.LastAction}",
                     }));
             }
         }

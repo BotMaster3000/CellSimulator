@@ -8,7 +8,7 @@ namespace CellSimulator.Interfaces
 {
     public interface ICellOverseer
     {
-        List<ICell> CellList { get; }
+        List<ICell> CellList { get; set; }
 
         void AddCell();
         void AddCell(ICell cell);

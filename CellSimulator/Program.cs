@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CellSimulator.Logic;
 
 namespace CellSimulator
 {
@@ -10,6 +11,10 @@ namespace CellSimulator
     {
         static void Main(string[] args)
         {
+            SimulationManager manager = new SimulationManager();
+            manager.StartSimulation();
+            return;
+
             bool showCellInfo = true;
             CellOverseer overseer = new CellOverseer(1);
             while (true)
