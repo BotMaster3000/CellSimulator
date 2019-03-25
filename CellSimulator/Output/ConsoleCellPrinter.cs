@@ -11,6 +11,11 @@ namespace CellSimulator.Output
     {
         private const char VALUE_SEPARATION_VALUE = '|';
 
+        public void PrintCellCount(IEnumerable<ICell> cellsToPrint)
+        {
+            Console.WriteLine($"Total Cells Alive: {cellsToPrint.Count()}");
+        }
+
         public void PrintCells(IEnumerable<ICell> cellsToPrint)
         {
             foreach (ICell cell in cellsToPrint)

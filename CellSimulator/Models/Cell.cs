@@ -31,7 +31,7 @@ namespace CellSimulator.Models
         private const int FOOD_CONSUMED_PER_ACTION = 5;
         private const int ENERGY_CONSUMED_PER_ACTION = 5;
 
-        private Random rand;
+        private readonly Random rand;
 
         public Cell(int id = 0, Random rand = null)
         {

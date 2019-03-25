@@ -13,25 +13,32 @@ namespace CellSimulator.Logic
     public class SimulationManager : ISimulationManager
     {
         private readonly ICellOverseer Overseer = new CellOverseer();
-        private readonly ISaveLoadManager SaveLoadmanager = new SaveLoadManager();
+        private readonly ISaveLoadManager SaverLoader = new SaveLoadManager();
         private readonly IUserActionManager InputManager = new ConsoleInputManager();
         private readonly ICellPrinter OutputManager = new ConsoleCellPrinter();
+
+        private bool ShowAllInfo = true;
 
         public void StartSimulation()
         {
             SetInitialPopulation();
             while (true)
             {
-                OutputManager.PrintCells(Overseer.CellList);
+                if (ShowAllInfo)
+                {
+                    OutputManager.PrintCells(Overseer.CellList);
+                }
+                OutputManager.PrintCellCount(Overseer.CellList);
                 switch (InputManager.GetUserAction())
                 {
                     case UserActionEnum.LOAD:
-                        Overseer.CellList = (List<ICell>)SaveLoadmanager.LoadFromFile(InputManager.GetUserFileName());
+                        Overseer.CellList = (List<ICell>)SaverLoader.LoadFromFile(InputManager.GetUserFileName());
                         break;
                     case UserActionEnum.SAVE:
-                        SaveLoadmanager.SaveToFile(InputManager.GetUserFileName(), Overseer.CellList);
+                        SaverLoader.SaveToFile(InputManager.GetUserFileName(), Overseer.CellList);
                         break;
                     case UserActionEnum.SWITCHSHOWINFO:
+                        ShowAllInfo = !ShowAllInfo;
                         break;
                     case UserActionEnum.INVALID:
                         Overseer.SimulateNext();

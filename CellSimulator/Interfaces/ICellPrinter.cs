@@ -9,5 +9,6 @@ namespace CellSimulator.Interfaces
     public interface ICellPrinter
     {
         void PrintCells(IEnumerable<ICell> cellsToPrint);
+        void PrintCellCount(IEnumerable<ICell> cellsToPrint);
     }
 }

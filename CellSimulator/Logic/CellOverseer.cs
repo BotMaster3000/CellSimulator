@@ -11,9 +11,9 @@ namespace CellSimulator.Logic
     public class CellOverseer : ICellOverseer
     {
         public List<ICell> CellList { get; set; } = new List<ICell>();
-        private int internalIdCounter = 0;
+        private int internalIdCounter;
 
-        private Random rand = new Random();
+        private readonly Random rand = new Random();
 
         public void AddCell()
         {
@@ -36,7 +36,7 @@ namespace CellSimulator.Logic
                 {
                     CellList.Remove(cell);
                 }
-                else if(cell.LastAction == Enums.CellActionEnum.SuccessSplit)
+                else if (cell.LastAction == Enums.CellActionEnum.SuccessSplit)
                 {
                     AddCell();
                 }
