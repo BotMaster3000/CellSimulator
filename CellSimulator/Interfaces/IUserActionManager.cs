@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CellSimulator.Enums;
 
 namespace CellSimulator.Interfaces
 {
-    class IUserActionManager
+    public interface IUserActionManager
     {
+        UserActionEnum GetUserAction();
     }
 }

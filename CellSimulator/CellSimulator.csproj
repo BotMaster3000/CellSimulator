@@ -45,6 +45,8 @@
     <Compile Include="Cell.cs" />
     <Compile Include="CellOverseer.cs" />
     <Compile Include="Enums\CellActionEnum.cs" />
+    <Compile Include="Enums\UserActionEnum.cs" />
+    <Compile Include="Input\ConsoleInputManager.cs" />
     <Compile Include="Interfaces\ICell.cs" />
     <Compile Include="Interfaces\IUserActionManager.cs" />
     <Compile Include="Interfaces\ICellPrinter.cs" />
