@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CellSimulator.Interfaces;
+using CellSimulator.Models;
 
-namespace CellSimulator.Models
+namespace CellSimulator.Logic
 {
     public class CellOverseer : ICellOverseer
     {
@@ -16,7 +17,7 @@ namespace CellSimulator.Models
 
         public void AddCell()
         {
-            AddCell(new Cell(internalIdCounter, rand));
+            AddCell(new Models.Cell(internalIdCounter, rand));
             ++internalIdCounter;
         }
 
