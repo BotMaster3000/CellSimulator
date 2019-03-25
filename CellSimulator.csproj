@@ -46,7 +46,8 @@
     <Compile Include="CellOverseer.cs" />
     <Compile Include="Enums\CellActionEnum.cs" />
     <Compile Include="Interfaces\ICell.cs" />
-    <Compile Include="Interfaces\IConsoleWriter.cs" />
+    <Compile Include="Interfaces\IUserActionManager.cs" />
+    <Compile Include="Interfaces\ICellPrinter.cs" />
     <Compile Include="Interfaces\ICellOverseer.cs" />
     <Compile Include="Interfaces\ISaveLoadManager.cs" />
     <Compile Include="Logic\SaveLoadManager.cs" />
