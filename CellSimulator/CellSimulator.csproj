@@ -53,6 +53,7 @@
     <Compile Include="Logic\SaveLoadManager.cs" />
     <Compile Include="Models\Cell.cs" />
     <Compile Include="Logic\CellOverseer.cs" />
+    <Compile Include="Output\ConsoleCellPrinter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
