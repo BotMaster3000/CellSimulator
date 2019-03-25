@@ -76,7 +76,7 @@ namespace CellSimulator.Models
                 {
                     LastAction = CellActionEnum.FailSplit;
                 }
-                Energy -= FOOD_REQUIRED_FOR_TRY_SPLIT;
+                Food -= FOOD_REQUIRED_FOR_TRY_SPLIT;
             }
             else
             {

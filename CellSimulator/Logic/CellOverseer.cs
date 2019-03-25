@@ -28,18 +28,24 @@ namespace CellSimulator.Logic
 
         public void SimulateNext()
         {
-            for (int i = 0; i < CellList.Count; i++)
+            List<ICell> CellsToRemove = new List<ICell>();
+            int cellCount = CellList.Count; // Might get bigger during for-Loop, but New Cells should only be Evaluated in next run
+            for (int i = 0; i < cellCount; i++)
             {
                 ICell cell = CellList[i];
                 cell.PerformAction();
                 if (!cell.IsAlive)
                 {
-                    CellList.Remove(cell);
+                    CellsToRemove.Add(cell);
                 }
                 else if (cell.LastAction == Enums.CellActionEnum.SuccessSplit)
                 {
                     AddCell();
                 }
+            }
+            foreach(ICell cell in CellsToRemove)
+            {
+                CellList.Remove(cell);
             }
         }
     }
