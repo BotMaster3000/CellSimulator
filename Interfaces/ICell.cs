@@ -10,7 +10,7 @@ namespace CellSimulator.Interfaces
         int MaxFood { get; set; }
         int Energy { get; set; }
         int MaxEnergy { get; set; }
-        ActionEnum LastAction { get; set; }
+        CellActionEnum LastAction { get; set; }
         bool IsAlive { get; set; }
 
         bool TrySplit();

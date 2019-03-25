@@ -45,7 +45,7 @@ namespace CellSimulator.Logic
                         MaxFood = int.Parse(currentLineValues[3]),
                         Energy = int.Parse(currentLineValues[4]),
                         MaxEnergy = int.Parse(currentLineValues[5]),
-                        LastAction = (ActionEnum)Enum.Parse(typeof(ActionEnum), currentLineValues[6])
+                        LastAction = (CellActionEnum)Enum.Parse(typeof(CellActionEnum), currentLineValues[6])
                     });
                 }
             }

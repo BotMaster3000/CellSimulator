@@ -16,7 +16,7 @@ namespace CellSimulator.Models
         public int MaxFood { get; set; }
         public int Energy { get; set; }
         public int MaxEnergy { get; set; }
-        public ActionEnum LastAction { get; set; }
+        public CellActionEnum LastAction { get; set; }
         public bool IsAlive { get; set; } = true;
 
         private const double PROPABILITY_EAT_FOOD = 0.25;
@@ -68,13 +68,13 @@ namespace CellSimulator.Models
             {
                 if (TrySplit())
                 {
-                    LastAction = ActionEnum.SuccessSplit;
+                    LastAction = CellActionEnum.SuccessSplit;
                     Food -= FOOD_REQUIRED_FOR_SUCCESSFUL_SPLIT;
                     Energy -= ENERGY_REQUIRED_FOR_SPLIT;
                 }
                 else
                 {
-                    LastAction = ActionEnum.FailSplit;
+                    LastAction = CellActionEnum.FailSplit;
                 }
                 Energy -= FOOD_REQUIRED_FOR_TRY_SPLIT;
             }
@@ -82,11 +82,11 @@ namespace CellSimulator.Models
             {
                 if (TryEat())
                 {
-                    LastAction = ActionEnum.SuccessEat;
+                    LastAction = CellActionEnum.SuccessEat;
                 }
                 else
                 {
-                    LastAction = ActionEnum.FailEat;
+                    LastAction = CellActionEnum.FailEat;
                 }
             }
             Energy -= FOOD_CONSUMED_PER_ACTION;

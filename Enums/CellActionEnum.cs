@@ -1,7 +1,7 @@
 ﻿
 namespace CellSimulator.Enums
 {
-    public enum ActionEnum
+    public enum CellActionEnum
     {
         Born,
         SuccessSplit,

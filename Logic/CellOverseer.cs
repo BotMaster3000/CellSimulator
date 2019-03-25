@@ -36,7 +36,7 @@ namespace CellSimulator.Logic
                 {
                     CellList.Remove(cell);
                 }
-                else if(cell.LastAction == Enums.ActionEnum.SuccessSplit)
+                else if(cell.LastAction == Enums.CellActionEnum.SuccessSplit)
                 {
                     AddCell();
                 }
