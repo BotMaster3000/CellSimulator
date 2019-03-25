@@ -48,11 +48,13 @@
     <Compile Include="Enums\UserActionEnum.cs" />
     <Compile Include="Input\ConsoleInputManager.cs" />
     <Compile Include="Interfaces\ICell.cs" />
+    <Compile Include="Interfaces\ISimulationManager.cs" />
     <Compile Include="Interfaces\IUserActionManager.cs" />
     <Compile Include="Interfaces\ICellPrinter.cs" />
     <Compile Include="Interfaces\ICellOverseer.cs" />
     <Compile Include="Interfaces\ISaveLoadManager.cs" />
     <Compile Include="Logic\SaveLoadManager.cs" />
+    <Compile Include="Logic\SimulationManager.cs" />
     <Compile Include="Models\Cell.cs" />
     <Compile Include="Logic\CellOverseer.cs" />
     <Compile Include="Output\ConsoleCellPrinter.cs" />

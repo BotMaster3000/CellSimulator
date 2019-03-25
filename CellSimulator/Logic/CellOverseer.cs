@@ -10,7 +10,7 @@ namespace CellSimulator.Logic
 {
     public class CellOverseer : ICellOverseer
     {
-        public List<ICell> CellList { get; private set; } = new List<ICell>();
+        public List<ICell> CellList { get; set; } = new List<ICell>();
         private int internalIdCounter = 0;
 
         private Random rand = new Random();

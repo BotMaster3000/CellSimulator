@@ -10,6 +10,19 @@ namespace CellSimulator.Input
 {
     public class ConsoleInputManager : IUserActionManager
     {
+        public int GetStartingCellCount()
+        {
+            Console.Write("Enter Starting Cell Count: ");
+            if (int.TryParse(Console.ReadLine(), out int result))
+            {
+                return result;
+            }
+            else
+            {
+                return -1;
+            }
+        }
+
         public UserActionEnum GetUserAction()
         {
             Console.Write("Enter Action: ");
@@ -21,7 +34,12 @@ namespace CellSimulator.Input
             {
                 return UserActionEnum.INVALID;
             }
+        }
 
+        public string GetUserFileName()
+        {
+            Console.Write("Enter FileName: ");
+            return Console.ReadLine();
         }
     }
 }

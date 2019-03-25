@@ -10,5 +10,7 @@ namespace CellSimulator.Interfaces
     public interface IUserActionManager
     {
         UserActionEnum GetUserAction();
+        int GetStartingCellCount();
+        string GetUserFileName();
     }
 }
