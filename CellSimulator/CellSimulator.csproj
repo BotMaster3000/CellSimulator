@@ -42,8 +42,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cell.cs" />
-    <Compile Include="CellOverseer.cs" />
     <Compile Include="Enums\CellActionEnum.cs" />
     <Compile Include="Enums\UserActionEnum.cs" />
     <Compile Include="Input\ConsoleInputManager.cs" />
