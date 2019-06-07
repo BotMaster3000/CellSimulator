@@ -14,6 +14,8 @@ namespace CellSimulator.Output
         public void PrintCellCount(IEnumerable<ICell> cellsToPrint)
         {
             Console.WriteLine($"Total Cells Alive: {cellsToPrint.Count()}");
+            Console.WriteLine($"Oldest Cell: {cellsToPrint.Max(x => x.Age)}");
+            Console.WriteLine($"Total Cells Born: {cellsToPrint.Count(x => x.LastAction == Enums.CellActionEnum.Born)}");
         }
 
         public void PrintCells(IEnumerable<ICell> cellsToPrint)
